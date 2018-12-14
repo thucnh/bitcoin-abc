@@ -829,11 +829,7 @@ UniValue getblock(const Config &config, const JSONRPCRequest &request) {
 
     int verbosity = 1;
     if (request.params.size() > 1) {
-        if (request.params[1].isNum()) {
-            verbosity = request.params[1].get_int();
-        } else {
-            verbosity = request.params[1].get_bool() ? 1 : 0;
-        }
+        verbosity = request.params[1].get_int();
     }
 
     if (mapBlockIndex.count(hash) == 0) {
